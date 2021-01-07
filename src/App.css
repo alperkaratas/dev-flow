@@ -15,8 +15,19 @@
 
 }
 
+.user-location {
+  font-size:small;
+}
+
 .card-container {
   height: 300px;
+  width: 50%;
+}
+.search-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .Header {
@@ -33,6 +44,13 @@
 .App-logo {
   margin: 2%;
   pointer-events: none;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .search-button {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
