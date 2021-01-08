@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import React, { useEffect, useState } from "react";
@@ -9,10 +10,7 @@ import {
   Message,
   Image,
   Feed,
-  List,
-  Segment,
   Divider,
-  Grid,
 } from "semantic-ui-react";
 import logo from "./logo.png";
 import axios from "axios";
@@ -21,11 +19,12 @@ import FlatList from "flatlist-react";
 
 const Home = () => {
   const [githubSearch, setGithubSearch] = useState("");
-  const [searchBarText, setSearchBarText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [getUserData, setGetUserData] = useState([{}]);
   const [userStatus, setUserStatus] = useState("400");
   const [getRepoName, setGetRepoName] = useState([{}]);
   const [getEventsData, setGetEventsData] = useState([]);
+  const [getGraphData, setGetGraphData] = useState("");
 
   const githubAvatar = `https://avatars.githubusercontent.com/${githubSearch}`;
 
@@ -34,13 +33,12 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}`,
       {
         headers: {
-          Authorization: "d4b4841127d390e1c0c425da6b131a378d19f34c",
+          Accept: "d4b4841127d390e1c0c425da6b131a378d19f34c",
         },
       }
     );
     setGetUserData(response.data);
     setUserStatus(response.status);
-    console.log(userStatus);
   };
 
   const getRepo = async () => {
@@ -48,12 +46,11 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}/repos`,
       {
         headers: {
-          Authorization: "d4b4841127d390e1c0c425da6b131a378d19f34c",
+          Accept: "2d521ac629fed10b5c57dfd120232b2f901bb6a7",
         },
       }
     );
     setGetRepoName(response.data);
-    console.log(getRepoName);
   };
 
   const getEventData = async () => {
@@ -61,21 +58,18 @@ const Home = () => {
       ` https://api.github.com/users/${githubSearch}/events`,
       {
         headers: {
-          Authorization: "8b67a6f6ad199d10ff2ebffee22473907197925e",
+          Accept: "2d521ac629fed10b5c57dfd120232b2f901bb6a7",
         },
       }
     );
     setGetEventsData(response1.data);
-    console.log(getEventsData);
   };
-
   const getAllData = () => {
     getUsersData();
     getRepo();
     getEventData();
-    setGithubSearch("beyzaefe");
-    console.log(getRepoName.name);
-    console.log(userStatus);
+    setGithubSearch(searchText);
+    console.log(searchText);
   };
   {
     /*useEffect(() => {
@@ -106,7 +100,7 @@ const Home = () => {
                 <Feed.Extra>
                   Action:{" "}
                   {item.payload.action == null ? "pushed" : item.payload.action}{" "}
-                  @ {moment(item.created_at).format("Do MMM YYYY")}
+                  @{moment(item.created_at).format("Do MMM YYYY")}
                 </Feed.Extra>
               </Feed.Meta>
             </Feed.Content>
@@ -179,7 +173,7 @@ const Home = () => {
               icon="github"
               iconPosition="left"
               placeholder="Search username..."
-              onChange={(text) => setSearchBarText(text)}
+              onChange={(event) => setSearchText(event.target.value)}
             />
             <div style={{ marginLeft: 5 }}>
               <Button onClick={() => getAllData()} circular icon="search" />
