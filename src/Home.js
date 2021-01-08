@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Icon,
@@ -11,6 +11,7 @@ import {
   Image,
   Feed,
   Divider,
+  Popup,
 } from "semantic-ui-react";
 import logo from "./logo.png";
 import axios from "axios";
@@ -24,7 +25,7 @@ const Home = () => {
   const [userStatus, setUserStatus] = useState("400");
   const [getRepoName, setGetRepoName] = useState([{}]);
   const [getEventsData, setGetEventsData] = useState([]);
-  const [getGraphData, setGetGraphData] = useState("");
+  const [stepStats, setStepStats] = useState("deactive");
 
   const githubAvatar = `https://avatars.githubusercontent.com/${githubSearch}`;
 
@@ -69,13 +70,9 @@ const Home = () => {
     getRepo();
     getEventData();
     setGithubSearch(searchText);
+    setStepStats("active");
     console.log(searchText);
   };
-  {
-    /*useEffect(() => {
-    getAllData();
-  });*/
-  }
 
   const renderEvent = (item) => {
     const navigateRepo = `https://github.com/${item.repo.name}`;
@@ -154,17 +151,20 @@ const Home = () => {
           <Icon name="mail outline" /> Mail
         </Button>
       </div>
-      <p>
-        Created by{" "}
-        <a
-          href="https://github.com/alperkaratas"
-          target="_blank"
-          style={{ textDecoration: "underline" }}
-        >
-          @alperkaratas
-        </a>{" "}
-        @January / 2021 🎉
-      </p>
+      <div style={{ marginTop: 13, marginBottom: 13 }}>
+        <p>
+          Created by{" "}
+          <a
+            href="https://github.com/alperkaratas"
+            target="_blank"
+            style={{ textDecoration: "underline" }}
+          >
+            @alperkaratas
+          </a>
+          {", "}
+          @January / 2021 🎉
+        </p>
+      </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           <div className="search-button">
@@ -176,7 +176,12 @@ const Home = () => {
               onChange={(event) => setSearchText(event.target.value)}
             />
             <div style={{ marginLeft: 5 }}>
-              <Button onClick={() => getAllData()} circular icon="search" />
+              <Popup
+                content="👉 First click = get datas from api  👉 Second click = visualize data"
+                trigger={
+                  <Button onClick={() => getAllData()} circular icon="search" />
+                }
+              />
             </div>
           </div>
           {githubSearch === "" && userStatus != "200" ? (
@@ -195,6 +200,13 @@ const Home = () => {
                 <p style={{ marginTop: 10 }}>
                   Enter the username of the person whose GitHub status you want
                   to see and review it 🙂
+                </p>
+                <p style={{ marginTop: 10 }}>📌</p>
+                <p style={{ marginTop: 10 }}>
+                  👉 First search click = get datas from api{" "}
+                </p>
+                <p style={{ marginTop: 10 }}>
+                  👉 Second click = visualize data
                 </p>
               </Message>
             </div>
@@ -442,7 +454,8 @@ const Home = () => {
               <Message info>
                 <Message.Header className="text-25">Oops ❗️</Message.Header>
                 <p style={{ marginTop: 10 }}>
-                  This username is not available on GitHub 😔 Please check it ❗️
+                  This username is not available on GitHub 😔 Please check it
+                  ❗️
                 </p>
               </Message>
             </div>
