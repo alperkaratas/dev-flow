@@ -11,8 +11,12 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin-bottom: 5%;
+  margin-bottom: 1.8%;
 
+}
+
+.divider-a {
+  width: 80%;
 }
 
 .user-location {
@@ -23,7 +27,10 @@
   height: 300px;
   width: 50%;
 }
-
+.repos-container {
+  margin-left: 3%;
+  margin-right: 3%;
+}
 
 .search-button {
   display: flex;
@@ -40,11 +47,10 @@
 .Search-bar-div {
   display: flex;
   justify-content: space-between;
-  margin-right: 30px;
 }
 
 .App-logo {
-  margin: 2%;
+  margin: 1%;
   pointer-events: none;
 }
 
