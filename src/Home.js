@@ -1,7 +1,15 @@
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import React, { useEffect, useState } from "react";
-import { Button, Icon, Input, Card, Message, Image } from "semantic-ui-react";
+import {
+  Button,
+  Icon,
+  Input,
+  Card,
+  Message,
+  Image,
+  Header,
+} from "semantic-ui-react";
 import logo from "./logo.png";
 import axios from "axios";
 
@@ -9,6 +17,7 @@ const Home = () => {
   const [githubSearch, setGithubSearch] = useState("");
   const [searchBarText, setSearchBarText] = useState("");
   const [getUserData, setGetUserData] = useState([{}]);
+  const [getRepoName, setGetRepoName] = useState([{}]);
   const githubAvatar = `https://avatars.githubusercontent.com/${githubSearch}`;
 
   const getUsersData = async () => {
@@ -16,21 +25,37 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}`,
       {
         headers: {
-          Authorization: "9b44cf6406e0ef91c3f2d006162719a8722a59e2",
+          Authorization: "d4b4841127d390e1c0c425da6b131a378d19f34c",
         },
       }
     );
     setGetUserData(response.data);
   };
 
-  const getAllData = () => {
-    getUsersData();
-    setGithubSearch("alperkaratas");
+  const getRepo = async () => {
+    const response = await axios.get(
+      `https://api.github.com/users/${githubSearch}/repos`,
+      {
+        headers: {
+          Authorization: "d4b4841127d390e1c0c425da6b131a378d19f34c",
+        },
+      }
+    );
+    setGetRepoName(response.data);
+    console.log(getRepoName);
   };
 
-  useEffect(() => {
+  const getAllData = () => {
+    getUsersData();
+    getRepo();
+    setGithubSearch("ezranbayantemur");
+    console.log(getRepoName.name);
+  };
+  {
+    /*useEffect(() => {
     getAllData();
-  });
+  });*/
+  }
 
   return (
     <div className="App">
@@ -128,47 +153,84 @@ const Home = () => {
                       <Card.Description className="user-location">
                         {getUserData.location}
                       </Card.Description>
+                      {getUserData.twitter_username == null ? null : (
+                        <Card.Description className="user-location">
+                          <Button
+                            onClick={() =>
+                              window.open(
+                                `https://twitter.com/${getUserData.twitter_username}`,
+                                "_blank"
+                              )
+                            }
+                            color="twitter"
+                          >
+                            <Icon name="twitter" />{" "}
+                            {getUserData.twitter_username}
+                          </Button>
+                        </Card.Description>
+                      )}
                     </Card.Content>
                   </Card>
                 </div>
-
                 <Card.Group itemsPerRow={3}>
-                  <Card
-                    color="red"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
-                  <Card
-                    color="orange"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
-                  <Card
-                    color="yellow"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
-                  <Card
-                    color="olive"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
-                  <Card
-                    color="green"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
-                  <Card
-                    color="teal"
-                    image={
-                      "https://github-readme-stats.vercel.app/api/pin/?username=alperkaratas&repo=find-mentor-mobil"
-                    }
-                  />
+                  {getRepoName[0] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[0].html_url, "_blank")
+                      }
+                      color="red"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[0].name}`}
+                    />
+                  )}
+                  {getRepoName[1] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[1].html_url, "_blank")
+                      }
+                      color="black"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[1].name}`}
+                    />
+                  )}
+
+                  {getRepoName[2] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[2].html_url, "_blank")
+                      }
+                      color="blue"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[2].name}`}
+                    />
+                  )}
+
+                  {getRepoName[3] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[3].html_url, "_blank")
+                      }
+                      color="purple"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[3].name}`}
+                    />
+                  )}
+
+                  {getRepoName[4] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[4].html_url, "_blank")
+                      }
+                      color="yellow"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[4].name}`}
+                    />
+                  )}
+
+                  {getRepoName[5] == null ? null : (
+                    <Card
+                      onClick={() =>
+                        window.open(getRepoName[5].html_url, "_blank")
+                      }
+                      color="green"
+                      image={`https://github-readme-stats.vercel.app/api/pin/?username=${githubSearch}&repo=${getRepoName[5].name}`}
+                    />
+                  )}
                 </Card.Group>
               </div>
               <div
@@ -184,6 +246,11 @@ const Home = () => {
                   image={`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubSearch}`}
                 />
               </div>
+
+              <h2 style={{marginTop: 80}} class="ui horizontal divider header">
+                <i class="clock icon"></i>
+                {githubSearch} 's Timeline
+              </h2>
             </div>
           )}
         </div>

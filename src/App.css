@@ -23,6 +23,8 @@
   height: 300px;
   width: 50%;
 }
+
+
 .search-button {
   display: flex;
   flex-direction: row;
