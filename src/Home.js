@@ -163,7 +163,7 @@ const Home = () => {
         >
           @alperkaratas
         </a>{" "}
-        @January / 2021.
+        @January / 2021 🎉
       </p>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
@@ -357,7 +357,7 @@ const Home = () => {
                     >
                       <Message info>
                         <Message.Header className="text-25">
-                          Oops !
+                          Oops ❗️
                         </Message.Header>
                         <p style={{ marginTop: 10, fontSize: 14 }}>
                           No Repo found, so no top language either 😔
@@ -423,7 +423,7 @@ const Home = () => {
             >
               <Message info>
                 <Message.Header className="text-25">
-                  Server Error !
+                  Server Error ❗️
                 </Message.Header>
                 <p style={{ marginTop: 10, fontSize: 14 }}>
                   Please try again a few minutes later 😔
@@ -440,9 +440,9 @@ const Home = () => {
               }}
             >
               <Message info>
-                <Message.Header className="text-25">Oops!</Message.Header>
+                <Message.Header className="text-25">Oops ❗️</Message.Header>
                 <p style={{ marginTop: 10 }}>
-                  This username is not available on GitHub 😔 Please check it !
+                  This username is not available on GitHub 😔 Please check it ❗️
                 </p>
               </Message>
             </div>
