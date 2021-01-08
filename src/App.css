@@ -11,12 +11,12 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin-bottom: 1.8%;
+  margin-bottom: 0.5%;
 
 }
 
 .divider-a {
-  width: 80%;
+  width: 100%;
 }
 
 .user-location {

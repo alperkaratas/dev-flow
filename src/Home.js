@@ -83,10 +83,10 @@ const Home = () => {
   });*/
   }
 
-  const renderEvent = (item, idx) => {
+  const renderEvent = (item) => {
     const navigateRepo = `https://github.com/${item.repo.name}`;
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
         <Feed>
           <Feed.Event>
             <Feed.Label>
@@ -160,6 +160,7 @@ const Home = () => {
           <Icon name="mail outline" /> Mail
         </Button>
       </div>
+      <p>Created by <a href="https://github.com/alperkaratas" style={{textDecoration: "underline"}}>alperkaratas</a>  @January / 2021</p>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           <div className="search-button">
@@ -245,7 +246,7 @@ const Home = () => {
                     </Card.Content>
                   </Card>
                 </div>
-                <div style={{ marginTop: 30 }}>
+                <div style={{ marginTop: 15 }}>
                   <img src={githubStats} />
                 </div>
                 <div style={{ marginTop: 30 }}>
@@ -255,7 +256,7 @@ const Home = () => {
                   <Button
                     onClick={() =>
                       window.open(
-                        "https://twitter.com/intent/tweet?text=Hey!%20You%20can%20see%20my%20GitHub%20summary%20here 👉 &url=http://localhost:3001/alperkaratas",
+                        `https://twitter.com/intent/tweet?text=Hey!%20You%20can%20see%20my%20GitHub%20summary%20here%20(search word: ${githubSearch}) 👉 &url=http://localhost:3001/alperkaratas`,
                         "_blank"
                       )
                     }
@@ -361,13 +362,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <h3
+              <h2
                 style={{ marginTop: 80 }}
                 class="ui horizontal divider header"
               >
                 <i class="clock icon"></i>
                 {githubSearch} 's Timeline
-              </h3>
+              </h2>
               <ul>
                 <FlatList
                   list={getEventsData}
