@@ -73,7 +73,7 @@ const Home = () => {
     getUsersData();
     getRepo();
     getEventData();
-    setGithubSearch("alperkaratas");
+    setGithubSearch("beyzaefe");
     console.log(getRepoName.name);
     console.log(userStatus);
   };
@@ -160,7 +160,17 @@ const Home = () => {
           <Icon name="mail outline" /> Mail
         </Button>
       </div>
-      <p>Created by <a href="https://github.com/alperkaratas" style={{textDecoration: "underline"}}>alperkaratas</a>  @January / 2021</p>
+      <p>
+        Created by{" "}
+        <a
+          href="https://github.com/alperkaratas"
+          target="_blank"
+          style={{ textDecoration: "underline" }}
+        >
+          @alperkaratas
+        </a>{" "}
+        @January / 2021.
+      </p>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           <div className="search-button">
@@ -326,6 +336,22 @@ const Home = () => {
                       />
                     )}
                   </Card.Group>
+                  {getRepoName[0] == null ? null : (
+                    <div style={{ marginTop: 15 }}>
+                      <Button
+                        onClick={() =>
+                          window.open(
+                            `https://github.com/${githubSearch}?tab=repositories`,
+                            "_blank"
+                          )
+                        }
+                        color="black"
+                      >
+                        <Icon name="github" /> See all of {githubSearch}'s repos
+                      </Button>
+                    </div>
+                  )}
+
                   {getRepoName[0] == null ? (
                     <div
                       style={{
@@ -367,7 +393,7 @@ const Home = () => {
                 class="ui horizontal divider header"
               >
                 <i class="clock icon"></i>
-                {githubSearch} 's Timeline
+                {githubSearch} 's GitHub Timeline
               </h2>
               <ul>
                 <FlatList
