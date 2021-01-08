@@ -178,7 +178,7 @@ const Home = () => {
               size="big"
               icon="github"
               iconPosition="left"
-              placeholder="Search users..."
+              placeholder="Search username..."
               onChange={(text) => setSearchBarText(text)}
             />
             <div style={{ marginLeft: 5 }}>
