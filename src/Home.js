@@ -47,7 +47,7 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}/repos`,
       {
         headers: {
-          Accept: "2d521ac629fed10b5c57dfd120232b2f901bb6a7",
+          Accept: "your personel access token",
         },
       }
     );
@@ -59,7 +59,7 @@ const Home = () => {
       ` https://api.github.com/users/${githubSearch}/events`,
       {
         headers: {
-          Accept: "2d521ac629fed10b5c57dfd120232b2f901bb6a7",
+          Accept: "your personel access token",
         },
       }
     );
