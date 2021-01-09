@@ -35,7 +35,7 @@
 - [ ] Editing the file and component structure
 - [ ] Clean code layout
  ---
- #### [Go to usage picture](https://github.com/alperkaratas/dev-flow/tree/master/src/usage-pictures)
+ #### [Go to usage pictures](https://github.com/alperkaratas/dev-flow/tree/master/src/usage-pictures)
  ---
  
 ### Licence
