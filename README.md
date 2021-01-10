@@ -39,6 +39,7 @@
 - [ ] Responsive design arrangements
 - [ ] Editing the file and component structure
 - [ ] Clean code layout
+- [ ] Statistics of different developer platforms
  ---
  #### [Go to usage pictures](https://github.com/alperkaratas/dev-flow/tree/master/src/usage-pictures)
  ---
