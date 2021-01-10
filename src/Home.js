@@ -25,7 +25,6 @@ const Home = () => {
   const [userStatus, setUserStatus] = useState("400");
   const [getRepoName, setGetRepoName] = useState([{}]);
   const [getEventsData, setGetEventsData] = useState([]);
-  const [stepStats, setStepStats] = useState("deactive");
 
   const githubAvatar = `https://avatars.githubusercontent.com/${githubSearch}`;
 
@@ -70,8 +69,6 @@ const Home = () => {
     getRepo();
     getEventData();
     setGithubSearch(searchText);
-    setStepStats("active");
-    console.log(searchText);
   };
 
   const renderEvent = (item) => {
@@ -150,18 +147,20 @@ const Home = () => {
         >
           <Icon name="mail outline" /> Mail
         </Button>
-        <a
-          href="https://www.producthunt.com/posts/dev-flow?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dev-flow"
-          target="_blank"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=280541&theme=dark"
-            alt="dev-flow - View GitHub statistics and timeline by username. | Product Hunt"
-            style={{width: 150}}
-            width="250"
-            height="54"
-          />
-        </a>
+        <div style={{ marginTop: 2 }}>
+          <a
+            href="https://www.producthunt.com/posts/dev-flow?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dev-flow"
+            target="_blank"
+          >
+            <img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=280541&theme=dark"
+              alt="dev-flow - View GitHub statistics and timeline by username. | Product Hunt"
+              style={{ width: 150 }}
+              width="250"
+              height="54"
+            />
+          </a>
+        </div>
       </div>
       <div style={{ marginTop: 13, marginBottom: 13 }}>
         <p>
