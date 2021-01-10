@@ -284,7 +284,7 @@ const Home = () => {
                   <Button
                     onClick={() =>
                       window.open(
-                        `https://twitter.com/intent/tweet?text=Hey!%20You%20can%20see%20my%20GitHub%20summary%20here%20(search word: ${githubSearch}) 👉 &url=http://localhost:3001/alperkaratas`,
+                        `https://twitter.com/intent/tweet?text=Hey!%20You%20can%20see%20my%20GitHub%20summary%20here%20(search word: ${githubSearch}) 👉 &url=https://dev-flow.netlify.app/`,
                         "_blank"
                       )
                     }
