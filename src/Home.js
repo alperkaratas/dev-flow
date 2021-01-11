@@ -33,7 +33,7 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}`,
       {
         headers: {
-          Accept: "d4b4841127d390e1c0c425da6b131a378d19f34c",
+          Accept: " your GitHub personel access token ",
         },
       }
     );
@@ -46,7 +46,7 @@ const Home = () => {
       `https://api.github.com/users/${githubSearch}/repos`,
       {
         headers: {
-          Accept: "your personel access token",
+          Accept: " your GitHub personel access token ",
         },
       }
     );
@@ -58,7 +58,7 @@ const Home = () => {
       ` https://api.github.com/users/${githubSearch}/events`,
       {
         headers: {
-          Accept: "your personel access token",
+          Accept: " your GitHub personel access token ",
         },
       }
     );
@@ -243,6 +243,11 @@ const Home = () => {
                       <Card.Description className="user-location">
                         {getUserData.location}
                       </Card.Description>
+                      {getUserData.company == null ? null : (
+                        <Card.Description>
+                          <Icon name="building" /> {getUserData.company}
+                        </Card.Description>
+                      )}
                       {getUserData.twitter_username == null ? null : (
                         <Card.Description className="user-location">
                           <button
