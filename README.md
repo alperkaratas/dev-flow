@@ -1,6 +1,6 @@
 <img width={200} height={200} src="https://i.ibb.co/KqQ8Pfw/icon.png"/>
 
-# 🎉  [dev-flow](https://dev-flow.netlify.app/) - Developer Flow  🎉
+# 🎉  [dev-flow](https://dev-flow.netlify.app/{:target="_blank"}) - Developer Flow  🎉
 
 ### What is dev-flow ❓ 
  * dev-flow is a website where you can view any person's GitHub statistics and timeline by entering their GitHub username.
