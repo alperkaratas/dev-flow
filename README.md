@@ -19,14 +19,6 @@
  2. npm install
  3. npm start
  
- ```
- ❗️ Create your GitHub [Personel Access Key](https://github.com/settings/tokens) and add it to the following section,
-  - Path: dev-flow > src > Home.js (37. and 64. row) 
- ```
-  headers: {
-              Accept: "your personel access key",
-           }
- ```
  ---
  ### ✊ Support
  
