@@ -6,13 +6,18 @@
   justify-content: center;
   min-height: 20vh;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .button-container {
   align-items: center;
   display: flex;
   flex-direction: row;
   margin-bottom: 0.5%;
-
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 .divider-a {
@@ -20,13 +25,14 @@
 }
 
 .user-location {
-  font-size:small;
+  font-size: small;
 }
 
 .card-container {
   height: 300px;
   width: 50%;
 }
+
 .repos-container {
   margin-left: 3%;
   margin-right: 3%;
@@ -37,10 +43,223 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.search-input-container {
+  flex: 1;
+  min-width: 200px;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.responsive-stats-image {
+  max-width: 70%;
+  height: auto;
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+}
+
+.responsive-graph-image {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.user-card-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  margin-top: 50px;
+  padding: 0 10px;
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.content-section {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-hunt-badge {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
+
+.github-avatar-wrapper {
+  padding: 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: transparent !important;
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+.ui.card > .github-avatar-wrapper {
+  margin: 0 !important;
+  border: none !important;
+  padding: 20px !important;
+}
+
+.ui.card > .github-avatar-wrapper img.github-avatar {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.github-avatar {
+  width: 200px !important;
+  height: 270px !important;
+  object-fit: cover !important;
+  border-radius: 50% / 40% !important;
+  border: 3px solid #e0e0e0 !important;
+  display: block !important;
+  margin: 0 auto !important;
+  background: #fff !important;
+  flex-shrink: 0 !important;
+}
+
+.github-avatar-feed {
+  width: 50px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50% / 40%;
+  border: 2px solid #e0e0e0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .repos-container .ui.card.group {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+
+  .repos-container .ui.card.group > .card {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    margin: 0.5%;
+    padding: 0 5px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1%;
+  }
+
+  .button-container > button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .search-button {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .search-input-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .main-content-wrapper {
+    flex-direction: column;
+  }
+
+  .repos-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .user-card-container {
+    margin: 10px;
+    margin-top: 30px;
+    padding: 0 5px;
+  }
+
+  .product-hunt-badge {
+    width: 200px;
+  }
+
+  .responsive-stats-image {
+    width: 85% !important;
+    max-width: 85% !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .responsive-graph-image {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    margin: 0;
+    padding: 0;
+  }
+
+  .App-logo img {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .button-container {
+    padding: 0 10px;
+  }
+
+  .button-container > button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .search-button {
+    padding: 0 10px;
+  }
+
+  .user-card-container {
+    margin: 5px;
+    margin-top: 20px;
+  }
+
+  .product-hunt-badge {
+    width: 180px;
+  }
+
+  .repos-container {
+    padding: 0 5px;
+  }
 }
 
 .Header {
-  font-family: lato,sans-serif;
+  font-family: lato, sans-serif;
   font-weight: 100;
   font-style: normal;
 }
@@ -53,7 +272,6 @@
   margin: 1%;
   pointer-events: none;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .search-button {
@@ -90,5 +308,109 @@
   }
   100% {
     transform: skewX(-10deg);
+  }
+}
+
+/* Additional responsive utilities */
+@media (max-width: 768px) {
+  .text-25 {
+    font-size: 18px !important;
+  }
+
+  .ui.message {
+    margin: 10px !important;
+    padding: 15px !important;
+  }
+
+  .ui.card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .ui.card > .github-avatar-wrapper {
+    padding: 15px !important;
+  }
+
+  .ui.card .github-avatar-wrapper img {
+    width: 100% !important;
+    max-width: 200px !important;
+    height: auto !important;
+  }
+
+  .ui.feed {
+    width: 100% !important;
+    padding: 0 10px;
+  }
+
+  .ui.card.group {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .ui.card.group > .card {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  .ui.horizontal.divider.header {
+    font-size: 18px !important;
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-25 {
+    font-size: 16px !important;
+  }
+
+  .ui.message {
+    margin: 5px !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+  }
+
+  .ui.card .content {
+    padding: 10px !important;
+  }
+
+  .ui.feed .event {
+    padding: 10px 0 !important;
+  }
+
+  .ui.card.group > .card {
+    margin: 8px 0 !important;
+  }
+
+  .ui.horizontal.divider.header {
+    font-size: 16px !important;
+    margin: 40px 0 20px 0 !important;
+  }
+
+  .ui.button {
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+  }
+
+  .ui.input {
+    width: 100% !important;
+  }
+
+  .github-avatar {
+    width: 150px !important;
+    height: 200px !important;
+  }
+
+  .github-avatar-wrapper {
+    padding: 15px !important;
+  }
+
+  .github-avatar-feed {
+    width: 40px;
+    height: 52px;
+  }
+
+  .responsive-stats-image {
+    width: 90% !important;
+    max-width: 90% !important;
   }
 }
